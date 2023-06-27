@@ -1,6 +1,8 @@
 const inquirer = require("inquirer");
 const fs = require("fs");
-const {Circle, Square, Triangle} = require("./lib/shapes");
+const { Circle } = require("./lib/shapes");
+const { Triangle } = require("./lib/shapes");
+const { Square } = require("./lib/shapes");
 
 // Array of questions
 inquirer
@@ -45,3 +47,19 @@ inquirer
       // Something else went wrong
     }
   });
+
+// ask questions, initialize to create logo using responses and catch errors.
+// 
+
+function init() {
+  inquirer
+    .prompt(questions)
+    .then((response) => {
+      createLogo(response);
+    })
+    .catch(err =>{
+      console.log(err)
+    });
+}
+
+init();
