@@ -52,14 +52,18 @@ inquirer
 // 
 
 function init() {
-  inquirer
-    .prompt(questions)
-    .then((response) => {
-      createLogo(response);
-    })
-    .catch(err =>{
-      console.log(err)
-    });
+  inquirer.prompt(questions).then((response) => {
+    console.log(response);
+
+    const data = {
+      text: response.logotxt,
+      textColor: response.textcolor,
+      shape: response.shape,
+      shapeColor: response.shapeColor
+    };
+    fileWrite("logo-params.json", JSON.stringify(data, null, 1));
+
+  }
 }
 
 init();
