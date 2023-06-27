@@ -30,7 +30,7 @@ inquirer
         type:'input',
         message: 'What color of the shape? (Color or Hexadecimal)'
 
-    }=
+    }
 
   ])
   .then((answer) => {
