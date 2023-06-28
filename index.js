@@ -38,24 +38,9 @@ inquirer
   ];
 
 
-  .then(answer => {
-    const {text, textColor, }
-    // Use user feedback for... whatever!!
-    if (answer.text.length > 3) {
-        console.error('Only 3 Characters or less')
-        return
-    }
-  })
-  .catch((error) => {
-    if (error.isTtyError) {
-      // Prompt couldn't be rendered in the current environment
-    } else {
-      // Something else went wrong
-    }
-  });
-
 
 // Ask questions, initialize to create logo using responses, and catch errors.
+
 function init() {
   inquirer.prompt(questions)
     .then(response => {
