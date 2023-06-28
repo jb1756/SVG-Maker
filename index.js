@@ -10,7 +10,7 @@ inquirer
       type: 'input',
       message: "Enter 3 Characters:",
       validate: function (input) {
-        if (input.length > 3) {
+        if (input.length <= 3) {
           return 'Only 3 Characters or less';
         }
         return true;
@@ -35,7 +35,7 @@ inquirer
         message: 'What color of the shape? (Color or Hexadecimal)'
     }
 
-  ];
+  ]);
 
 
 
