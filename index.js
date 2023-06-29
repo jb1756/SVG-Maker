@@ -3,14 +3,13 @@ const fs = require("fs");
 const { Circle, Triangle, Square } = require("./lib/shapes");
 
 // Array of questions
-inquirer
-  .prompt([
+const questions = [
     {
       name: 'text',
       type: 'input',
       message: "Enter 3 Characters:",
       validate: function (input) {
-        if (input.length <= 3) {
+        if (input.length < 3) {
           return 'Only 3 Characters or less';
         }
         return true;
@@ -35,9 +34,26 @@ inquirer
         message: 'What color of the shape? (Color or Hexadecimal)'
     }
 
-  ]);
+  ];
 
-
+//Write Function to generate SVG.
+function generateSVG(shape, text, textColor, shapeColor) {
+  let svgLogo;
+  switch (shape) {
+    case 'Circle':
+      svgLogo = new Circle(text, textColor, shapeColor);
+      break;
+    case 'Square':
+      svgLogo = new Square(text, textColor, shapeColor);
+      break;
+    case 'Triangle':
+      svgLogo = new Triangle(text, textColor, shapeColor);
+      break;
+    default:
+      throw new Error('Invalid shape');
+  }
+  return svgLogo.render();
+}
 
 // Ask questions, initialize to create logo using responses, and catch errors.
 
@@ -45,28 +61,9 @@ function init() {
   inquirer.prompt(questions)
     .then(response => {
       const { text, textColor, shape, shapeColor } = response;
-      let logo;
+      const svgLogo = generateSVG(shape, text, textColor, shapeColor);
 
-      switch (shape) {
-        case 'Circle':
-          logo = new Circle(text, textColor, shapeColor);
-          break;
-        case 'Square':
-          logo = new Square(text, textColor, shapeColor);
-          break;
-        case 'Triangle':
-          logo = new Triangle(text, textColor, shapeColor);
-          break;
-      }
-
-      const data = {
-        text: text,
-        textColor: textColor,
-        shape: shape,
-        shapeColor: shapeColor
-      };
-
-      fs.writeFile("logo-params.json", JSON.stringify(data, null, 1), err => {
+      fs.writeFile("logo-params.svg", svgLogo, err => {
         if (err) {
           console.error('Error writing file:', err);
         } else {
