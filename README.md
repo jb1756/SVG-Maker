@@ -22,6 +22,8 @@
  ## Live Screen Recording
 
 ## Screenshots
+Logo 
+![Screnshot_Triangle](https://github.com/jb1756/SVG-Maker/blob/main/examples/Screenshot_Triangle.png)
 
 ## Technologies Used
 This project uses Node.js version 16, and utilizes inquirer. Uses jest to conduct testing. 
