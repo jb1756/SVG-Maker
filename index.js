@@ -72,7 +72,7 @@ function init() {
         filename = `logo-params_${counter}.svg`;
       }
 
-      fs.writeFile("logo-params.svg", svgLogo, err => {
+      fs.writeFile(filename, svgLogo, err => {
         if (err) {
           console.error('Error writing file:', err);
         } else {
