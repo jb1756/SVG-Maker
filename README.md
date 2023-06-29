@@ -23,8 +23,13 @@
 
 ## Screenshots
 Logo 
+
 ![Screnshot_Triangle](https://github.com/jb1756/SVG-Maker/blob/main/examples/Screenshot_Triangle.png)
 
+Code 
+![Screenshot_Code](https://github.com/jb1756/SVG-Maker/blob/main/examples/Screenshot_code.png)
+
+![Gitbash npm](https://github.com/jb1756/SVG-Maker/blob/main/examples/Screenshot_gitbas.png)
 ## Technologies Used
 This project uses Node.js version 16, and utilizes inquirer. Uses jest to conduct testing. 
 
