@@ -20,6 +20,7 @@
  This appplication uses npm inquirer and jest to create a simple logo for their clients projects.
 
  ## Live Screen Recording
+ link - https://watch.screencastify.com/v/Gp2VcN86vimjZlkNV5FO
 
 ## Screenshots
 Logo 
