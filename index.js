@@ -63,6 +63,15 @@ function init() {
       const { text, textColor, shape, shapeColor } = response;
       const svgLogo = generateSVG(shape, text, textColor, shapeColor);
 
+      //had a problem with .svg being over written
+      let counter = 1;//count file made
+      let filename = `logo-params_${counter}.svg`;
+
+      while (fs.existsSync(filename)){
+        counter++;
+        filename = `logo-params_${counter}.svg`;
+      }
+
       fs.writeFile("logo-params.svg", svgLogo, err => {
         if (err) {
           console.error('Error writing file:', err);
